@@ -10,6 +10,7 @@ interface Period {
   description: string;
   highlights: string[];
   historians?: { name: string; work: string }[];
+  image?: string;
 }
 
 const periods: Period[] = [
@@ -18,6 +19,7 @@ const periods: Period[] = [
     title: 'Первый этап',
     years: 'X - XVII вв.',
     description: 'Донаучный этап постижения прошлого. Литературные памятники Древней Руси и Московского государства.',
+    image: 'https://cdn.poehali.dev/projects/34391417-98fc-416c-96bd-970e6d1298b1/files/416a89d2-c62f-4a63-95cc-73ec1707ee30.jpg',
     highlights: [
       '«Повесть временных лет» монаха Нестора (XI в.) - вымысел не был отделен от реальности',
       '«Хронограф» (1512 г.) - первый краткий обзор всемирной истории',
@@ -30,6 +32,7 @@ const periods: Period[] = [
     title: 'Второй этап',
     years: 'XVIII - начало XIX вв.',
     description: 'Начало превращения исторических знаний в науку. Основание Российской Академии наук Петром I.',
+    image: 'https://cdn.poehali.dev/projects/34391417-98fc-416c-96bd-970e6d1298b1/files/e751d759-9528-4c59-9d20-4fba737bd0e2.jpg',
     highlights: [
       'Немецкая школа: Г. Байер, А. Шлёцер - ввели в оборот русские летописи',
       'Г.Ф. Миллер собрал богатейшие архивные материалы по истории Сибири'
@@ -45,6 +48,7 @@ const periods: Period[] = [
     title: 'Третий этап',
     years: 'вторая треть XIX - начало XX вв.',
     description: 'Становление и развитие отечественной исторической науки. Россия рассматривается как часть Европы.',
+    image: 'https://cdn.poehali.dev/projects/34391417-98fc-416c-96bd-970e6d1298b1/files/f2b4acd2-6f3a-4909-9486-794c1b6dcceb.jpg',
     highlights: [
       'Государственная теория: изучение системы государственных учреждений',
       'Выдающиеся историки: Т.Н. Грановский, К.Д Кавелин, Б.Н. Чичерин'
@@ -170,6 +174,16 @@ const Index = () => {
                   index % 2 === 0 ? 'lg:ml-0 lg:mr-auto' : 'lg:ml-auto lg:mr-0'
                 } lg:w-[calc(50%-2rem)]`}>
                   <CardContent className="p-8">
+                    {period.image && (
+                      <div className="mb-6 -mt-8 -mx-8 overflow-hidden rounded-t-lg">
+                        <img 
+                          src={period.image} 
+                          alt={period.title}
+                          className="w-full h-48 object-cover"
+                        />
+                      </div>
+                    )}
+                    
                     <div className="flex items-start gap-4 mb-6">
                       <div className="flex-shrink-0 w-16 h-16 rounded-full bg-primary flex items-center justify-center">
                         <span className="text-2xl font-bold text-primary-foreground">{period.id}</span>
